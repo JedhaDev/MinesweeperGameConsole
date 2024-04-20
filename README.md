@@ -1,1 +1,1 @@
-# MinsweeperGameConsole
+# Minesweeper Game Console
