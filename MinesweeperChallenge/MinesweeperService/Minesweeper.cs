@@ -22,6 +22,22 @@ namespace MinesweeperService
 
         public void InitGame(int rows, int cols, int mineCount, int totalLifes)
         {
+            if (totalLifes < 1)
+            {
+                throw new ArgumentException("Minimun lifes should be bigger than 0");
+            }
+
+
+            if (rows < 3 || cols < 3)
+            {
+                throw new ArgumentException("Minimun required is 3 rows and 3 cols");
+            }
+
+            if (mineCount > (rows * cols) -1)
+            {
+                throw new ArgumentException("The maximum amount of mines should not be bigger than the total of cells minus one");
+            }
+
             _mineCount = mineCount;
             _mines = new bool[rows, cols];
             

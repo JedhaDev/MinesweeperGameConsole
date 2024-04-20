@@ -12,7 +12,7 @@ namespace MinesweeperGame
 
             var totalRows = 15;
             var totalCols = 10;
-            var totalMines = totalCols * totalRows / 3;
+            var totalMines = totalCols * totalRows /3;
             var totalLifes = 5;
 
             game.InitGame(totalRows, totalCols, totalMines, totalLifes);

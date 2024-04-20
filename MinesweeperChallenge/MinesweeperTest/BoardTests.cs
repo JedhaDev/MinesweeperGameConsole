@@ -6,7 +6,48 @@ namespace MinesweeperTest
     public class BoardTests
     {
         [TestMethod]
-        public void GenerateMines_Should_GenerateCorrectData()
+        [ExpectedException(typeof(ArgumentException), "Invalid init parameters are not allowded")]
+        public void Check_Initialization_WrongRows()
+        {
+            var board = new Minesweeper();
+
+            board.InitGame(0, 10, 5, 5);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "Invalid init parameters are not allowded")]
+        public void Check_Initialization_WrongCols()
+        {
+            var board = new Minesweeper();
+
+            board.InitGame(10, 0, 5, 5);
+
+        }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "Invalid init parameters are not allowded")]
+        public void Check_Initialization_WrongMines()
+        {
+            var board = new Minesweeper();
+
+            board.InitGame(10, 10, 10 * 10, 5);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "Invalid init parameters are not allowded")]
+        public void Check_Initialization_WrongLifes()
+        {
+            var board = new Minesweeper();
+
+            board.InitGame(10, 10, 10, 0);
+
+        }
+
+        [TestMethod]
+        public void Should_GenerateCorrectData()
         {
             var board = new Minesweeper();
 
@@ -24,7 +65,7 @@ namespace MinesweeperTest
         }
 
         [TestMethod]
-        public void GenerateMines_Should_CalculateCorrectlyInput ()
+        public void Should_CalculateCorrectlyInput ()
         {
             var board = new Minesweeper();
 
