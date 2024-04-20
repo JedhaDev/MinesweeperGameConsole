@@ -18,7 +18,7 @@ namespace MinesweeperService
         public int Rows => _rows;
         public int LifesLeft => _totalLifes - _lifesConsumed;
         public bool IsGameOver => _revealedCount == _rows * _cols - _mineCount || _lifesConsumed == _totalLifes;
-        public bool IsGameWon => _revealedCount == _rows * _cols - _mineCount;
+        public bool IsGameWon => LifesLeft > 0 && _revealedCount == _rows * _cols - _mineCount;
 
         public void InitGame(int rows, int cols, int mineCount, int totalLifes)
         {

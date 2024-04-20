@@ -128,6 +128,31 @@ namespace MinesweeperTest
             board.SetPosition(totalRows - 1, totalCols - 1);
             Assert.IsNotNull(board.GetCellValue(totalRows - 1, totalCols - 1));
         }
+
+
+        [TestMethod]
+        public void Should_Works_End_To_End()
+        {
+            var board = new Minesweeper();
+
+            var totalRows = 3;
+            var totalCols = 3;
+            var totalMines = totalCols * totalRows / 3;
+            var totalLifes = 1;
+
+            board.InitGame(totalRows, totalCols, totalMines, totalLifes);
+
+            for (int row = 0; row < totalRows; row++)
+            {
+                for (int col = 0; col < totalCols; col++)
+                {
+                    board.SetPosition(row, col);
+                    Assert.IsNotNull(board.GetCellValue(row, col));
+                }
+            }
+
+            Assert.IsFalse(board.IsGameWon);
+        }
     }
 
 }
