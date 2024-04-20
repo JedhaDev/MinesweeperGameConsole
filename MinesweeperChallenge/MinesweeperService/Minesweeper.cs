@@ -85,7 +85,11 @@ namespace MinesweeperService
 
         public string? GetCellValue(int row, int col)
         {
-            return IsValidCellPosition(row, col) ? _revealed[row, col] ? _mines[row, col] ? "*" : GetNeighborMineCount(row, col) : null : null;
+            return IsValidCellPosition(row, col) ? 
+                            (_revealed[row, col] ?
+                                (_mines[row, col] ? "*" : GetNeighborMineCount(row, col)) 
+                            : null) 
+                        : null;
         }
 
         bool IsValidCellPosition(int row, int col)
